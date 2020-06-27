@@ -7,6 +7,8 @@ import com.stolk.alecsandro.modelo.Agendamento;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -19,6 +21,7 @@ import java.util.Optional;
 
 @Stateless
 @Logger
+//@TransactionManagement(CONTAINER)
 public class AgendamentoBusiness {
 
     @Inject
@@ -36,6 +39,9 @@ public class AgendamentoBusiness {
         return agendamentoDao.listar();
     }
 
+    //  @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+    //  @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    //    @TransactionAttribute(NOT_SUPPORTED)
     public void salvar(@Valid Agendamento agendamentoEmail) throws BusinessException {
         if (!agendamentoDao.listar(agendamentoEmail.getEmail()).isEmpty()) {
             throw new BusinessException("Email já agendado.");

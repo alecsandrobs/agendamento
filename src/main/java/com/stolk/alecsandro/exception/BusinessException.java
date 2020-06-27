@@ -1,8 +1,10 @@
 package com.stolk.alecsandro.exception;
 
+import javax.ejb.ApplicationException;
 import java.util.ArrayList;
 import java.util.List;
 
+//@ApplicationException(rollback = true)
 public class BusinessException extends Exception {
 
     private List<String> mensagens = new ArrayList<>();

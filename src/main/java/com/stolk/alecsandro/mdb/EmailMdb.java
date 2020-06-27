@@ -18,6 +18,7 @@ import javax.jms.MessageListener;
                 propertyValue = "javax.jms.Queue")
 })
 public class EmailMdb implements MessageListener {
+
     @Inject
     private AgendamentoBusiness agendamentoBusiness;
 

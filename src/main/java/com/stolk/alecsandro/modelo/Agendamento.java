@@ -18,7 +18,7 @@ public class Agendamento implements Serializable {
 
     @Column
     @NotBlank(message = "{agendamento.email.vazio}")
-    @Email(message = "{agendamento.email.invalido}")
+    @Email(message = "#{agendamento.email.invalido}")
     private String email;
 
     @Column

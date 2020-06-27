@@ -6,6 +6,7 @@ import com.stolk.alecsandro.modelo.Agendamento;
 import javax.annotation.Resource;
 import javax.ejb.Schedule;
 import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.inject.Inject;
 import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
@@ -13,9 +14,10 @@ import javax.jms.Queue;
 import java.util.List;
 
 @Singleton
+// @Startup (Estudar essa anotação) - import javax.ejb.Startup;
 public class AgendamentoTimer {
 
-    @Inject
+   @Inject
     private AgendamentoBusiness agendamentoBusiness;
 
     @Inject
